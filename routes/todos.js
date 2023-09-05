@@ -3,7 +3,7 @@ const Todo = require('../models/Todo');
 
 const router = express.Router();
 
-// Fetch all todos
+
 router.get('/', async (req, res) => {
     try {
         const todos = await Todo.find();
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Create a new todo
+
 router.post('/', async (req, res) => {
     const { title } = req.body;
     if (!title) {
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Update todo by id
+
 router.put('/:id', async (req, res) => {
     try {
         const updatedTodo = await Todo.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -40,7 +40,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// Delete todo by id
+
 router.delete('/:id', async (req, res) => {
     try {
         const removedTodo = await Todo.findByIdAndRemove(req.params.id);
