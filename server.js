@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const todoRoutes = require('./routes/todos');
+require('dotenv').config();
 
 const app = express();
 
-mongoose.connect('mongodb+srv://imhamzaaslam:zRzxm0mtjDaeyEAq@cluster0.kkoilnp.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
